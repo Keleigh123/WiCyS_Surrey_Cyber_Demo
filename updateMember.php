@@ -34,7 +34,6 @@ if($_COOKIE['PHPSESSID']==session_id()){
         $username =  $_POST['username'];
 
         $sql = "SELECT * FROM `memberV0` WHERE username = :username";
-        // $sql = "SELECT * FROM `member` WHERE username = :username";
         $stmt = $conn->prepare($sql);
         $stmt->execute(['username' => $username]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -42,7 +41,6 @@ if($_COOKIE['PHPSESSID']==session_id()){
         if ($user) {
             $password = $_POST['password'];
             $sql = "UPDATE `memberV0` SET password = :password WHERE username = :username";
-          //  $sql = "UPDATE `member` SET password = :password WHERE username = :username";
             $stmt = $conn->prepare($sql);
             $stmt->execute(['password' => $password, 'username' => $username]);
          

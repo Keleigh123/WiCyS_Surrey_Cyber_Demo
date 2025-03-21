@@ -1,6 +1,5 @@
 <?php
 
-// solution step 1 - allowing different site requests
 //  session_set_cookie_params([
 //     'lifetime' => 0, 
 //     'secure' => true, 
@@ -8,7 +7,6 @@
 // ]);
 session_start();
 
-// solution step 2 - give access to different calls
 // header("Access-Control-Allow-Origin: null");
 // header("Access-Control-Allow-Credentials: true");
 // header("Access-Control-Allow-Private-Network: true");
@@ -21,7 +19,7 @@ if($_COOKIE['PHPSESSID']==session_id()){
 
     if (isset($_POST['reset-password']) ) {
        
-        //solution step 3 - check csrf token
+        //solution step 1 - check csrf token
         // $cipher = "aes-256-cbc";
         // $ivlen = openssl_cipher_iv_length($cipher);
         // $encryptedToken = base64_decode($_SESSION['csrf_token']);
